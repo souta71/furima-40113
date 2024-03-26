@@ -36,6 +36,7 @@
 | user         | references | null: false, foreign_key: true |
 
 ### Association
+
 - has_many   :deliverys
 - belongs_to :user
 - belongs_to :order
