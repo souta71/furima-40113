@@ -20,31 +20,29 @@
 
 ## items テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| title        | string     | null: false                    |
-| info         | text       | null: false                    |
-| category     | string     | null: false                    |
-| sales_stats  | string     | null: false                    |
-| shipping     | string     | null: false                    |
-| area_id      | string     | null: false                    |
-| delivery     | string     | null: false                    |
-| price        | integer    | null: false                    |
-| listing_user | string     | null: false                    |
-| user         | references | null: false, foreign_key: true |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| title          | string     | null: false                    |
+| info           | text       | null: false                    |
+| category_id    | integer    | null: false                    |
+| sales_stats_id | integer    | null: false                    |
+| shipping_id    | integer    | null: false                    |
+| area_id        | integer    | null: false                    |
+| delivery_id    | integer    | null: false                    |
+| price          | integer    | null: false                    |
+| user           | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :order
+- has_one    :order
 
 ## orders テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| buy_item  | string     | null: false                    |
-| buy_user  | string     | null: false,                   |
 | user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -57,7 +55,7 @@
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | postal_code  | string     | null: false                    |
-| area_id      | string     | null: false,                   |
+| area_id      | integer    | null: false,                   |
 | city         | string     | null: false,                   |
 | address      | string     | null: false,                   |
 | building     | string     |                                |
