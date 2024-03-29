@@ -25,7 +25,7 @@
 | title          | string     | null: false                    |
 | info           | text       | null: false                    |
 | category_id    | integer    | null: false                    |
-| sales_stats_id | integer    | null: false                    |
+| status_id      | integer    | null: false                    |
 | shipping_id    | integer    | null: false                    |
 | area_id        | integer    | null: false                    |
 | delivery_id    | integer    | null: false                    |
