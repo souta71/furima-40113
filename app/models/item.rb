@@ -15,10 +15,11 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :title, presence: true
   validates :info, presence: true
-  validates :category_id, numericality: { other_than: 1 }
-  validates :status_id, numericality: { other_than: 1 }
-  validates :shipping_id, numericality: { other_than: 1 }
-  validates :area_id, numericality: { other_than: 1 }
-  validates :delivery_id, numericality: { other_than: 1 }
+  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :shipping_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :delivery_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :price, presence: true
+  validates :price, numericality: true
 end
