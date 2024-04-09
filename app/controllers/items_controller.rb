@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: :new
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_item, only: [:show, :edit, :update]
-  before_action :move_to_sign_in, only: :edit
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -46,11 +45,5 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def move_to_sign_in
-    return if user_signed_in?
-
-    redirect_to new_user_session_path
   end
 end
