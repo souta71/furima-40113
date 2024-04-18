@@ -50,7 +50,7 @@
 - belongs_to :user
 - belongs_to :item
 
-##  informations テーブル
+##  info テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
