@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
   def index
+    @item = Item.find(params[:item_id])
     @order_info = OrderInfo.new
   end
 
   def create
+    @item = Item.find(params[:item_id])
     @order_info = OrderInfo.new(order_params)
     if @order_info.valid?
       @order_info.save
