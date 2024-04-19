@@ -8,7 +8,8 @@ class OrderInfo
   validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :city, presence: true
   validates :address, presence: true
-  validates :phone_number, presence: true, numericality: { only_integer: true }, length: { in: 10..11 }
+  validates :phone_number, presence: true, numericality: { only_integer: true }, length: { in: 10..11,
+                                                                                           message: 'number is too short' }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
