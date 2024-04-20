@@ -1,7 +1,8 @@
 class OrderInfo
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :area_id, :city, :address, :building, :phone_number, :order_id
+  attr_accessor :user_id, :item_id, :postal_code, :area_id, :city, :address, :building, :phone_number, :order_id, :token
 
+  validates :token, presence: true
   validates :user_id, presence: true
   validates :item_id, presence: true
   validates :postal_code, presence: true, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
