@@ -68,6 +68,11 @@ RSpec.describe OrderInfo, type: :model do
         @order_info.valid?
         expect(@order_info.errors.full_messages).to include('Phone number number is too short')
       end
+      it '電話番号の桁数が12桁以上なので保存できない' do
+        @order_info.phone_number = '090123456789'
+        @order_info.valid?
+        expect(@order_info.errors.full_messages).to include('Phone number number is too short')
+      end
       it 'tokenが空では登録できない' do
         @order_info.token = nil
         @order_info.valid?
