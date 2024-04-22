@@ -13,9 +13,9 @@ class OrderInfo
                                                                                            message: 'number is too short' }
 
   def save
-    order = Order.create(user_id: user_id, item_id: item_id)
+    order = Order.create(user_id:, item_id:)
 
-    Info.create(postal_code: postal_code, area_id: area_id, city: city, address: address, building: building,
-                       phone_number: phone_number, order_id: order.id)
+    Info.create(postal_code:, area_id:, city:, address:, building:,
+                phone_number:, order_id: order.id)
   end
 end
