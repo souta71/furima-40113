@@ -14,6 +14,10 @@ const price = () => {
   });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  price();
+});
+
 document.addEventListener("turbo:render", () => {
   price();
 });
