@@ -12,6 +12,10 @@ RSpec.describe OrderInfo, type: :model do
       it 'すべての値が存在していれば保存できる' do
         expect(@order_info).to be_valid
       end
+      it '建物が空でも保存できる' do
+        @order_info.building = ''
+        expect(@order_info).to be_valid
+      end
     end
     context '購入できない場合' do
       it 'userが紐付いていないと保存できない' do
