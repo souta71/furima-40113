@@ -1,7 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  before_action :set_item, only: [:index]
+  before_action :out_user, only: [:index]
+  before_action :out_user2, only: [:index]
+
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
-    @item = Item.find(params[:item_id])
     @order_info = OrderInfo.new
   end
 
@@ -33,5 +37,21 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def out_user
+    return unless current_user == @item.user
+
+    redirect_to root_path
+  end
+
+  def out_user2
+    return unless @item.order.present?
+
+    redirect_to root_path
   end
 end
