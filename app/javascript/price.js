@@ -6,8 +6,8 @@ const price = () => {
     const addTaxDom = document.getElementById("add-tax-price");
     const profitDom = document.getElementById("profit");
 
-    const taxAmount = Math.floor(inputValue * 0.1); // 販売手数料を整数に丸める
-    const profitAmount = inputValue - taxAmount; // 販売利益を計算
+    const taxAmount = Math.floor(inputValue * 0.1);
+    const profitAmount = inputValue - taxAmount;
 
     addTaxDom.innerHTML = taxAmount;
     profitDom.innerHTML = profitAmount;
