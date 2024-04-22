@@ -46,11 +46,11 @@
 
 ### Association
 
-- has_one    :delivery
+- has_one    :information
 - belongs_to :user
 - belongs_to :item
 
-## deliverys テーブル
+##  info テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
